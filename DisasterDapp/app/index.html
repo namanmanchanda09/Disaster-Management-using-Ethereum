@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MetaCoin - Truffle Webpack Demo w/ Frontend</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="./app.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAefXK91jWaL5BEqOGwradwMhcUCQizsEI&libraries=places"></script> -->
+  <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyAefXK91jWaL5BEqOGwradwMhcUCQizsEI"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.0/d3.js" charset="utf-8"></script>
+
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <!-- <h1>MetaCoin</h1>
+  <h2>Example Truffle Dapp</h2>
+  <h3>You have <span class="black"><span id="balance"></span> META</span></h3>
+
+  <br>
+  <h1>Send MetaCoin</h1>
+  <br><label for="amount">Amount:</label><input type="text" id="amount" placeholder="e.g., 95"></input>
+  <br><label for="receiver">To Address:</label><input type="text" id="receiver" placeholder="e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"></input>
+  <br><br><button id="send" onclick="App.sendCoin()">Send MetaCoin</button>
+  <br><br> -->
+  <span id="status"></span>
+
+  <!-- <button onclick="App.myFun()">Click</button> -->
+
+
+<h1 style="color:#8d8cec;font-weight: bold">NASACHAINS</h1>
+<br>
+<!-- <button onclick="App2.getCoordinates()">Send Coordinates</button>
+
+<button onclick="App2.getCoordinates2()">get Api data</button>
+
+<button  onclick="App2.isOwner()">check me</button>
+
+<button >Refresh Landslide Data</button> 
+<button>Refresh Precepitation Data</button>
+
+<button>Check  </button> -->
+
+  
+
+
+  
+
+<!-- <div class="container">
+  
+  <p id="demo"></p>
+ 
+</div> -->
+
+
+
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#myPage">NASA CHAIN</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#about" id="">Create Alert</a>
+          </li>
+          <li>
+            <a href="#services">Check Statistics</a>
+          </li>
+          <li>
+            <a href="#portfolio">Claims</a>
+          </li>
+          <li>
+            <a href="#pricing">Check Alert</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+    <h1>LOCATION CHECK</h1>
+    <p>Instantly check any disaster/landslide issues near your location</p>
+    <button type="button" class="btn btn-default" onclick="App2.getCoordinates()" 
+     style="text-align: center; padding-left: 300px; font-weight: bold; font-size: larger; padding-right: 300px;">AM I SAFE!!</button>
+    <!-- <form>
+      <input type="text" name="location" class="form-control" size="50" id="Location" onfocus="window.onfocuslocation();">
+    </form> -->
+  </div>
+
+  <!-- Container (About Section) -->
+  <div id="about" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Create Alert</h2>
+        <br>
+        
+        <br>
+        <p>
+           Alert is being created as soon as trigger from global LHASA (Landslide Hazard Assessment for Situational Awareness)
+           model is obtained. It is a global landslide model built recently i.e. April 2018 & integrated
+           with IMERG(Integrated Multi Satellite Retrievals for GPM) which shows recent precipitation & updated every 30 minutes. 
+           In order to access location, we have used NASA API (data.nasa.gov/resource/tfkf-kniw.json) to access location data for high alert in our smart contract.
+        </p>
+        <br>
+        <button class="btn btn-default btn-lg">CREATE ALERT</button>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-signal logo"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-grey">
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-globe logo slideanim"></span>
+      </div>
+      <div class="col-sm-8">
+        <h2>Smart Contract: Objectives</h2>
+        <br>
+       
+        <br>
+        <p>
+          <strong>Our Smart Contract is a decentralized distributed application which provides 
+            transparency & trust after hazard for providing resources to the needy people validating
+           in the form of tokens. It's a two step process i.e. firstly checking the availability of 
+           resources in the form of token, secondly validating it after the resource is received by user.
+            Prototype for a single resource at a time is built which can be extented to many resources i.e. 
+            food, cloth, fuel, medicine etc.
+          &
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Services Section) -->
+  <div id="services" class="container-fluid text-center">
+    <h2>Check Statistics</h2>
+    <h4>What we offer</h4>
+    <br>
+    <div id='chart'></div>
+    <!-- <div class="row slideanim">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-off logo-small"></span>
+        <h4>POWER</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-heart logo-small"></span>
+        <h4>LOVE</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-lock logo-small"></span>
+        <h4>JOB DONE</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+    </div> -->
+    <br>
+    <br>
+    <!-- <div class="row slideanim">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-leaf logo-small"></span>
+        <h4>GREEN</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-certificate logo-small"></span>
+        <h4>CERTIFIED</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-wrench logo-small"></span>
+        <h4 style="color:#303030;">HARD WORK</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- Container (Portfolio Section) -->
+  <div id="portfolio" class="container-fluid text-center bg-grey">
+    <h2>Claims and Settlements</h2>
+    <br>
+    <h4>What we have created</h4>
+    <input type="text" id="input1" placeholder="Request for Resoures" />
+    <input type="text" id="input2" placeholder="receiver address" />
+    <input type="text" id="input3" placeholder="receiver resources" />
+    <input type="button" id="button1"class="" style="margin-top: 150px;" value="getresources" onclick="App2.GetResources()"/>
+    <input type="button" id="button2" value="complete transaction" onclick="App2.CompleteTransaction()"/>
+  
+    <input type="button" id="button3" style="margin-top: 5px;" class="btn btn-success" value="Balance of account" onclick="App2.GetBalance()" style="float: left" />
+    <p id="balanceresult"></p> 
+  
+  
+  
+  </div>
+
+    <br>
+
+    
+    
+  </div>
+
+  <!-- Container (Pricing Section) -->
+  <div id="pricing" class="container-fluid">
+    <div class="text-center">
+      <h2>CHECK ALERT</h2>
+      <h4>Check if you are in the effected area</h4>
+      <button type="button" class="btn btn-primary" onclick="App2.getCoordinates()">CHECK</button>
+    </div>
+    <!--<div class="row slideanim">
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Basic</h1>
+          </div>
+          <div class="panel-body">
+            <p>
+              <strong>20</strong> Lorem</p>
+            <p>
+              <strong>15</strong> Ipsum</p>
+            <p>
+              <strong>5</strong> Dolor</p>
+            <p>
+              <strong>2</strong> Sit</p>
+            <p>
+              <strong>Endless</strong> Amet</p>
+          </div>
+          <div class="panel-footer">
+            <h3>$19</h3>
+            <h4>per month</h4>
+            <button class="btn btn-lg">Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Pro</h1>
+          </div>
+          <div class="panel-body">
+            <p>
+              <strong>50</strong> Lorem</p>
+            <p>
+              <strong>25</strong> Ipsum</p>
+            <p>
+              <strong>10</strong> Dolor</p>
+            <p>
+              <strong>5</strong> Sit</p>
+            <p>
+              <strong>Endless</strong> Amet</p>
+          </div>
+          <div class="panel-footer">
+            <h3>$29</h3>
+            <h4>per month</h4>
+            <button class="btn btn-lg">Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>Premium</h1>
+          </div>
+          <div class="panel-body">
+            <p>
+              <strong>100</strong> Lorem</p>
+            <p>
+              <strong>50</strong> Ipsum</p>
+            <p>
+              <strong>25</strong> Dolor</p>
+            <p>
+              <strong>10</strong> Sit</p>
+            <p>
+              <strong>Endless</strong> Amet</p>
+          </div>
+          <div class="panel-footer">
+            <h3>$49</h3>
+            <h4>per month</h4>
+            <button class="btn btn-lg">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div> // -->
+  </div>
+
+  <!-- Container (Contact Section) -->
+
+
+  <!-- Add Google Maps 
+<div id="googleMap" style="height:400px;width:100%;"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+-->
+  <!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>Developed By
+      <a href="#" title="Visit w3schools">NASA CHAIN</a>
+    </p>
+  </footer>
+
+
+
+<script>
+  $(document).ready(function () {
+    // Add smooth scrolling to all links in navbar + footer link
+    $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function () {
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+
+    window.onfocuslocation = function () {
+      var autocomplete = new google.maps.places.AutoComplete((document.getElementById("Location")),
+        { types: ['geocode'] });
+
+    }
+
+    $(window).scroll(function () {
+      $(".slideanim").each(function () {
+        var pos = $(this).offset().top;
+
+        var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+      });
+    });
+  })
+</script>
+
+<script>
+
+  var obj;
+
+  d3.json("http://localhost:8080/app/clusterpurityDataSet.json", function (error, data) {
+    obj = d3.clusterpuritychart().containerID('chart').noOfCategories(4).fixAngleLayout(true);
+    d3.select('#chart').append('svg').datum(data).call(obj);
+  });
+
+  d3.select('#click_1').on('click', clickFun);
+  d3.select('#click_2').on('click', clickFun);
+
+  function clickFun() {
+    obj.change(document.getElementById('click_1').checked);
+  }
+
+</script>
+
+<script>
+  //Developer: Narayana Swamy
+    //emailID: narayanaswamy14@gmail.com
+
+    d3 = d3 || {};
+    (function () {
+      "use strict";
+
+      d3.clusterpuritychart = function () {
+
+        var containerID,
+          width,
+          height,
+          originalData,
+          ParentG, LegendG, legendFilter = [],
+          circleR = 0,
+          innerRadius = 0, eleInRow, noOfCategories, fixAngleLayout,
+          colorScale = d3.scale.category10(),
+          radiusScale = d3.scale.linear(),
+          legendObj = d3.legend(),
+          scale_temp = d3.scale.linear(),
+          originalData2,
+          MinMaxTotal = 0,
+          margin = { top: 20 },
+          totalCount = 0,
+          colorMap = {};
+
+        var pie = d3.layout.pie()
+          .sort(null)
+          .value(function (d) {
+            return d.ele;
+          });
+
+        var custLayout = d3.custumPieLayout()
+          .sort(null)
+          .value(function (d) {
+            return d.ele;
+          });
+
+        var arc = d3.svg.arc()
+          .innerRadius(innerRadius);
+
+        var chart = function (selection) {
+
+          if (fixAngleLayout)
+            custLayout.fixAngle((360 / (noOfCategories - legendFilter.length)) / (360 / (2 * Math.PI)));
+
+          width = parseInt(d3.select('#' + containerID).style('width'));
+          height = parseInt(d3.select('#' + containerID).style('height'));
+
+          legendObj.legendOnclickMthod(chart.legendFilter);
+
+          selection.each(function (data) {
+
+            originalData = data;
+
+            data.forEach(function (d) {
+              d.values.forEach(function (e) {
+                e.total = d.total;
+                e.color = colorScale(e.type);
+                if (!colorMap.hasOwnProperty(e.type))
+                  colorMap[e.type] = { 'key': e.type, 'color': e.color };
+              })
+            });
+
+            var length = data.length, eleInRow = Math.ceil(Math.sqrt(length));
+            var container = d3.select(this);
+            width = width - 100;
+            var temp_width = data.length > eleInRow ? width - 0.5 * (width / eleInRow) : width;
+            circleR = d3.min([temp_width, (height - margin.top)]) / eleInRow;
+            var x_offset = 0, y_offset = 0;
+
+            radiusScale
+              .domain([0, d3.extent(data, function (d) { return d.total })[1]])
+              .range([(circleR / 2) * (1 / data.length), circleR / 2]);
+
+            MinMaxTotal = radiusScale.domain();
+
+            container.attr('width', (circleR * eleInRow + 0.5 * circleR) + 200)
+              .attr('height', circleR * eleInRow + margin.top)
+
+            if (!ParentG) {
+              ParentG = container.append('g').attr('class', 'parentG')
+                .attr('transform', 'translate(' + (data.length > eleInRow ? 0.5 * circleR : 0) + ',' + margin.top + ')');
+              LegendG = container.append('g').attr('class', 'legendG');
+            }
+
+            LegendG.attr('transform', 'translate(' + (width + 50) + ',' + ((circleR * eleInRow / 2) - (Object.keys(colorMap).length * 20) / 2) + ')')
+              .datum(colorMap)
+              .call(legendObj);
+
+            var circleG = ParentG
+              .attr('transform', 'translate(' + (data.length > eleInRow ? 0.5 * circleR : 0) + ',' + margin.top + ')')
+              .selectAll('.circleG')
+              .data(data
+                .sort(function (a, b) {
+                  if (a.total < b.total)
+                    return 1;
+                  else if (a.total > b.total)
+                    return -1;
+                  else
+                    return 0;
+                })
+              );
+
+            circleG.enter()
+              .append('g')
+              .attr('class', 'circleG')
+              .attr('transform', function (d, i) {
+                return 'translate(' + ((i % eleInRow) * (circleR)) + ',' + (Math.floor(i / eleInRow) * circleR) + ')';
+              })
+              .append('circle')
+              .attr('r', 0)
+              .attr('cx', circleR / 2)
+              .attr('cy', circleR / 2)
+              .style('fill', 'white')
+              .style('stroke', 'black')
+              .style('stroke-width', '1px');
+
+            circleG.exit().transition().duration(0).remove();
+
+            circleG
+              .attr('transform', function (d, i) {
+                if (Math.floor(i / eleInRow) % 2 === 1) {
+                  x_offset = 0.5 * circleR;
+                  y_offset = 0.13 * circleR * Math.floor(i / eleInRow);
+                }
+                else {
+                  x_offset = 0;
+                  if (Math.floor(i / eleInRow) === 0)
+                    y_offset = 0;
+                  else
+                    y_offset = 0.13 * circleR * Math.floor(i / eleInRow);
+                }
+                return 'translate(' + (((i % eleInRow) * (circleR)) - x_offset) + ',' + ((Math.floor(i / eleInRow) * circleR) - y_offset) + ')';
+              });
+
+            circleG
+              .selectAll('circle')
+              .attr('r', 0)
+              .attr('cx', circleR / 2)
+              .attr('cy', circleR / 2)
+              .on('mouseover', function (d) {
+                d3.select(this).style('stroke-width', '2px')
+              })
+              .on('mouseout', function (d) {
+                d3.select(this).style('stroke-width', '1px')
+              })
+              .on('click', function (d) {
+                d3.select(this).style('stroke-width', '1px')
+                if (originalData.length == 1)
+                  d3.select('#' + containerID).select('svg').datum(originalData2).call(chart);
+                else {
+                  originalData2 = originalData;
+                  d3.select('#' + containerID).select('svg').datum([d]).call(chart);
+                }
+              })
+              .transition()
+              .duration(1000)
+              .attr('r', circleR / 2);
+
+            circleG.each(chart.renderPieChart);
+
+          })
+          d3.select(window).on('resize.' + containerID, chart.resize)
+        };
+
+        chart.containerID = function (_) {
+          containerID = _;
+          return chart;
+        };
+        chart.noOfCategories = function (_) {
+          noOfCategories = _;
+          return chart;
+        };
+        chart.fixAngleLayout = function (_) {
+          fixAngleLayout = _;
+          return chart;
+        };
+        chart.legendFilter = function (_) {
+          if (legendFilter.indexOf(_) == -1)
+            legendFilter.push(_);
+          else
+            legendFilter.splice(legendFilter.indexOf(_), 1);
+
+          d3.select('#' + containerID).select('svg').datum(originalData).call(chart);
+
+          return chart;
+        };
+        chart.change = function (_) {
+          chart.fixAngleLayout(_);
+          d3.select('#' + containerID).select('svg').datum(originalData).call(chart);
+          return chart;
+        };
+
+        chart.resize = function () {
+          d3.select('#' + containerID).select('svg').datum(originalData).call(chart);
+        };
+
+        chart.renderPieChart = function (data) {
+
+          scale_temp
+            .domain(d3.extent(data.values, function (d) { return d.ele; }))
+            .range([parseInt(radiusScale(data.total) * 0.2), parseInt(radiusScale(data.total)) * (originalData.length == 1 ? 0.8 : 1.2)]);
+
+          arc.outerRadius(function (d) {
+            if (fixAngleLayout) {
+              return scale_temp(d.value);
+            }
+            else {
+              return (radiusScale(d.data.total)) * 0.8;
+            }
+          });
+
+          var newData = data.values
+            .filter(function (d) {
+              if (legendFilter.indexOf(d.type) === -1)
+                return true;
+              else
+                return false;
+            });
+
+          var paths = d3.select(this)
+            .selectAll('path')
+            .data(fixAngleLayout ? custLayout(newData) : pie(newData));
+
+          paths.enter()
+            .append("path")
+            .attr('transform', function (d, i) {
+              return 'translate(' + (circleR / 2) + ',' + (circleR / 2) + ')';
+            })
+            .attr("fill", function (d) {
+              return d.data.color;
+            })
+            .attr("stroke", "gray")
+            .attr("class", "outlineArc")
+            .attr("d", arc)
+            .on('click', function (d) {
+              console.log(originalData)
+              if (originalData.length == 1)
+                d3.select('#' + containerID).select('svg').datum(originalData2).call(chart);
+              else {
+                originalData2 = originalData;
+                d3.select('#' + containerID).select('svg').datum([d.parentData]).call(chart);
+              }
+            })
+            .each(function (d) {
+              this._current = d;
+              d.parentData = data;
+            });
+
+          paths.exit().transition().duration(1000).remove();
+
+          paths
+            .attr('transform', function (d, i) {
+              return 'translate(' + (circleR / 2) + ',' + (circleR / 2) + ')';
+            })
+            .attr("fill", function (d) {
+              return d.data.color;
+            })
+            .transition()
+            .duration(1000)
+            .attrTween("d", arcTween)
+            .each('end', function (d) {
+              this._current = d;
+              d.parentData = data;
+            });
+
+          function arcTween(a) {
+            var i = d3.interpolate(this._current, a);
+            this._current = i(10);
+            return function (t) {
+              return arc(i(t));
+            };
+          }
+
+        }
+
+        return chart;
+      };
+
+      d3.custumPieLayout = function () {
+        var sort, fixAngle,
+          valueFun,
+          sortcomparator,
+          padAngle = 0;
+
+        var pieLayoutObj = function (startAngle, endAngle, padAngle, value, data) {
+          this.startAngle = startAngle;
+          this.endAngle = endAngle;
+          this.padAngle = padAngle;
+          this.value = value;
+          this.data = data;
+        };
+
+        var layout = function (data) {
+
+          if (sortcomparator)
+            data.sort(sortcomparator);
+
+          var previousEndAngle = 0,
+            outputObj = [];
+
+          data.forEach(function (d) {
+            outputObj.push(new pieLayoutObj(previousEndAngle, previousEndAngle + fixAngle, padAngle, valueFun(d), d));
+            previousEndAngle = previousEndAngle + fixAngle;
+          });
+
+          return outputObj;
+
+        };
+
+        layout.sort = function (_) {
+          //if(typeof _ !== 'function') return;
+          sortcomparator = _;
+          return layout;
+        }
+        layout.fixAngle = function (_) {
+          if (!arguments.length) return;
+          fixAngle = _;
+          return layout;
+        }
+        layout.value = function (_) {
+          if (typeof _ !== 'function') return;
+          valueFun = _;
+          return layout;
+        }
+        layout.padAngle = function (_) {
+          padAngle = _;
+          return layout;
+        }
+
+        return layout;
+      };
+
+      d3.legend = function () {
+
+        var legendOnclickMthod,
+          legendOnHoverMthod,
+          legendOnmouseHoverMthod,
+          legendOnmouseOutMthod,
+          legendOndblclickMthod;
+
+        var chart = function (selection) {
+
+          selection.each(function (data) {
+
+
+            var legend_container = d3.select(this);
+
+            var wrap = legend_container.selectAll('.legendChart').data([data]);
+            var wrapEnter = wrap.enter().append('g').attr('class', 'legendChart');
+            var gEnter = wrapEnter.append('g');
+            var g = wrap.select('g')
+              .attr('transform', 'translate(10,30)');
+
+            wrapEnter.append('text').attr('x', 0).attr('y', 0).text('Interactive legend')
+            var g_ci = g.selectAll('circle')
+              .data(function (d) {
+                return Object.keys(d)
+              });
+
+            g_ci.exit().transition().remove();
+
+            g_ci.enter()
+              .append('circle')
+              .attr('r', function (d) { return 10; })
+              .style('fill', function (d) { return data[d].color })
+              .style('opacity', 1)
+              .style('stroke', function (d) { return data[d].color })
+              .style('stroke-width', 2)
+              .attr('cx', function (d, i) {
+                return 0;
+              })
+              .attr('cy', function (d, i) {
+
+                return Math.floor(i) * 30;
+              })
+              .on('mouseout', function (d) {
+                d3.select(this).style('stroke-width', 2)
+                  .style('stroke', function (d) { return data[d].color });
+              })
+              .on('mouseover', function (d) {
+                d3.select(this).style('stroke-width', 3)
+                  .style('stroke', function (d) { return 'black' });
+              })
+              .on('click', function (d) {
+                if (d3.select(this).classed("disable_")) {
+                  d3.select(this).style("fill", data[d].color)
+                    .classed("disable_", false);
+                  legendOnclickMthod(data[d].key, true);
+                }
+                else {
+                  d3.select(this).classed("disable_", true)
+                    .style("fill", 'white');
+                  legendOnclickMthod(data[d].key, false);
+                }
+              });
+
+
+            g_ci.style('fill', function (d) {
+              if (d3.select(this).style('fill') == 'rgb(255, 255, 255)')
+                return 'white';
+              else
+                return data[d].color;
+            })
+              .style('stroke', function (d) { return data[d].color })
+              .transition()
+              .duration(1000)
+              .attr('cx', function (d, i) {
+                return 0;
+              })
+              .attr('cy', function (d, i) {
+
+                return Math.floor(i) * 30;
+              });
+
+            var g_txt = g.selectAll('text')
+              .data(function (d) { return Object.keys(d) });
+
+            g_txt.exit().transition().remove();
+
+            g_txt.enter()
+              .append('text');
+
+            g_txt.text(function (d) { return data[d].key.substring(0, 10) })
+              .attr('font-size', '18px')
+              .transition()
+              .duration(1000)
+              .attr('x', function (d, i) {
+                return 30;
+              })
+              .attr('y', function (d, i) {
+                return i * 30 + 5;
+              })
+
+          });
+
+          //return chart;
+        };
+        chart.legendOnclickMthod = function (_) {
+          if (!arguments.length) return legendOnclickMthod;
+          if (typeof _ != 'function') return legendOnclickMthod;
+          legendOnclickMthod = _;
+          return chart;
+        };
+        chart.legendOndblclickMthod = function (_) {
+          if (!arguments.length) return legendOndblclickMthod;
+          if (typeof _ != 'function') return legendOndblclickMthod;
+          legendOndblclickMthod = _;
+          return chart;
+        };
+        chart.legendOnmouseOutMthod = function (_) {
+          if (!arguments.length) return legendOnmouseOutMthod;
+          if (typeof _ != 'function') return legendOnmouseOutMthod;
+          legendOnmouseOutMthod = _;
+          return chart;
+        };
+        chart.legendOnmouseHoverMthod = function () {
+          if (!arguments.length) return legendOnmouseHoverMthod;
+          if (typeof _ != 'function') return legendOnmouseHoverMthod;
+          legendOnmouseHoverMthod = _;
+          return chart;
+        };
+
+        return chart;
+
+      };
+
+    })()
+</script>
+
+</body>
+</html>
