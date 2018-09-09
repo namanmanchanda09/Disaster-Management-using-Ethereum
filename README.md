@@ -4,8 +4,8 @@
 #TEAM
 * KUSHAL SETH             - https://www.linkedin.com/in/sethkushal/
 * ABHAY CHATURVEDI        - <<Will update the links of team members, once they share >>
-* POOJA SARIN             - https://twitter.com/@sarinpooja_
-* NAMAN MANCHANDA         - https://twitter.com/NamanManchanda2
+* POOJA SARIN             - https://www.linkedin.com/in/sarinpooja/
+* NAMAN MANCHANDA         - https://www.linkedin.com/in/naman-manchanda-1b0948144/
 
 
 # GitHub Page
