@@ -2,14 +2,13 @@
 * Implemented a DApp to create a platform for Disaster Management.
 
 #TEAM
-* KUSHAL SETH             - https://www.linkedin.com/in/sethkushal/
-* ABHAY CHATURVEDI        - <<Will update the links of team members, once they share >>
-* POOJA SARIN             - https://www.linkedin.com/in/sarinpooja/
 * NAMAN MANCHANDA         - https://www.linkedin.com/in/naman-manchanda-1b0948144/
-
+* KUSHAL SETH             - https://www.linkedin.com/in/sethkushal/
+* POOJA SARIN             - https://www.linkedin.com/in/sarinpooja/
+* ABHAY CHATURVEDI        - <<Will update the links of team members, once they share >>
 
 # GitHub Page
-  https://github.com/KushalGH/blockchain_disastermanagement
+  https://github.com/namanmanchanda09/DisasterManagement
  
 # Youtube Link for Video Demonstration
   https://www.youtube.com/watch?v=wUYhxBvqYy8
