@@ -1,7 +1,7 @@
 # BLOCKCHAIN POWERED SOLUTIONS FOR LANDSLIDES AND DISASTER MANAGEMENT
 * Implemented a DApp to create a platform for Disaster Management.
 
-#TEAM
+# TEAM
 * NAMAN MANCHANDA         - https://www.linkedin.com/in/naman-manchanda-1b0948144/
 * KUSHAL SETH             - https://www.linkedin.com/in/sethkushal/
 * POOJA SARIN             - https://www.linkedin.com/in/sarinpooja/
