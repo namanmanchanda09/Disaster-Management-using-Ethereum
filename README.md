@@ -27,7 +27,7 @@
 # What it does:
 * Used ML algorithm along with NASA data to predict if a person is safe or not 
 * Increases collaboration between different legal entities.
-* In Case of disaster, it enable the organingations to mananage the help that they are providing.
+* In Case of disaster, it enable the organisations to manage the help that they are providing.
 * Reduces delays in serverices
 * No middle party
 * Tries to gureentee the resources are actually available to the people
