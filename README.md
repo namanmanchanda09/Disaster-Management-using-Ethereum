@@ -28,9 +28,9 @@
 * Used ML algorithm along with NASA data to predict if a person is safe or not 
 * Increases collaboration between different legal entities.
 * In Case of disaster, it enable the organisations to manage the help that they are providing.
-* Reduces delays in serverices
+* Reduces delays in services.
 * No middle party
-* Tries to gureentee the resources are actually available to the people
+* Tries to guarantee the resources are actually available to the people
 * Helps to settle Insurance claims in case of Disaster.
 
 # STEPS to Install / Setup
